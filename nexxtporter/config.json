@@ -1,175 +1,123 @@
 {
-    "LogConfig": {
-        "Echo": true,
-        "LogFile": "nexxtporter.log"
+  "LogConfig": {
+    "Echo": true,
+    "LogFile": "nexxtporter.log"
+  },
+  "NSSFiles": [
+    {
+      "SourceFile": "E:/nes/project2/project2.nss",
+      "ExportCHR": [
+        {
+          "TargetFile": "project2.chr",
+          "Start": "0",
+          "Size": "$400"
+        }
+      ]
     },
-    "RGBLookupTables": [
+    {
+      "SourceFile": "E:/nes/project2/nss/font.nss",
+      "ExportCHR": [
         {
-            "ID": "temp",
-            "Colors": [
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000",
-                "#000000"
-            ]
+          "TargetFile": "font.chr",
+          "Start": "0",
+          "Size": "$400"
         }
-    ],
-    "NSSFiles": [
+      ],
+      "ExportBitmap": [
         {
-            "SourceFile": "C:\\Users\\Owner\\Desktop\\nes\\project2\\project2.nss",
-            "ExportBitmap": [
-                {
-                    "TargetFile": "temp0.png",
-                    "StartTileIndex": "0",
-                    "TileCount": "256",
-                    "Layout": 2,
-                    "PaletteSetIndex": "0",
-                    "PaletteIndex": "0"
-                },
-                {
-                    "TargetFile": "temp1.png",
-                    "StartTileIndex": "0",
-                    "TileCount": "256",
-                    "Layout": 2,
-                    "PaletteSetIndex": "0",
-                    "PaletteIndex": "1"
-                },
-                {
-                    "TargetFile": "temp2.png",
-                    "StartTileIndex": "0",
-                    "TileCount": "256",
-                    "Layout": 2,
-                    "PaletteSetIndex": "0",
-                    "PaletteIndex": "2"
-                },
-                {
-                    "TargetFile": "temp3.png",
-                    "StartTileIndex": "0",
-                    "TileCount": "256",
-                    "Layout": 2,
-                    "PaletteSetIndex": "0",
-                    "PaletteIndex": "3"
-                }
-            ],
-            "ExportCHR": [
-                {
-                    "TargetFile": "00_1k.chr",
-                    "Start": "0",
-                    "Size": "$400"
-                },
-                {
-                    "TargetFile": "1k_1k.chr",
-                    "Start": "$400",
-                    "Size": "$400"
-                }
-            ],
-            "ExportPalette": [
-                {
-                    "TargetFile": "palette.s",
-                    "TargetSegmentName": "RODATA",
-                    "TargetVariableName": "palette_A",
-                    "TargetAppend": false,
-                    "SourceSubPalette": 0
-                },
-                {
-                    "TargetFile": "palette.s",
-                    "TargetSegmentName": "RODATA",
-                    "TargetVariableName": "palette_B",
-                    "TargetAppend": true,
-                    "SourceSubPalette": 1
-                },
-                {
-                    "TargetFile": "palette.s",
-                    "TargetSegmentName": "RODATA",
-                    "TargetVariableName": "palette_C",
-                    "TargetAppend": true,
-                    "SourceSubPalette": 2
-                },
-                {
-                    "TargetFile": "palette.s",
-                    "TargetSegmentName": "RODATA",
-                    "TargetVariableName": "palette_D",
-                    "TargetAppend": true,
-                    "SourceSubPalette": 3
-                }
-            ],
-            "ExportNametable": [
-                {
-                    "TargetFile": "nametable.nam"
-                }
-            ],
-            "ExportNametableAttributes": [
-                {
-                    "TargetFile": "nametable_attributes.nam"
-                }
-            ]
+          "TargetFile": "font.png",
+          "StartTileIndex": "0",
+          "TileCount": "64",
+          "Layout": 1,
+          "PaletteSetIndex": "0",
+          "PaletteIndex": "0"
         }
-    ]
+      ]
+    },
+    {
+      "SourceFile": "E:/nes/project2/nss/title.nss",
+      "ExportCHR": [
+        {
+          "TargetFile": "title_a.chr",
+          "Start": "0",
+          "Size": "$0400"
+        },
+        {
+          "TargetFile": "title_b.chr",
+          "Start": "$0400",
+          "Size": "$0400"
+        },
+        {
+          "TargetFile": "title_c.chr",
+          "Start": "$0800",
+          "Size": "$0400"
+        },
+        {
+          "TargetFile": "title_d.chr",
+          "Start": "$0C00",
+          "Size": "$0400"
+        },
+        {
+          "TargetFile": "title_e.chr",
+          "Start": "$1000",
+          "Size": "$0400"
+        },
+        {
+          "TargetFile": "title_f.chr",
+          "Start": "$1400",
+          "Size": "$0400"
+        },
+        {
+          "TargetFile": "title_g.chr",
+          "Start": "$1800",
+          "Size": "$0400"
+        },
+        {
+          "TargetFile": "title_h.chr",
+          "Start": "$1C00",
+          "Size": "$0400"
+        }
+      ],
+      "ExportNametable": [
+        {
+          "TargetFile": "title_nametable.dat"
+        }
+      ],
+      "ExportNametableAttributes": [
+        {
+          "TargetFile": "title_nametable_attributes.dat"
+        }
+      ],
+      "ExportPalette": [
+        {
+          "TargetFile": "title_palette.inc",
+          "TargetSegmentName": "TITLE_PRG",
+          "TargetVariableName": "title_palette_a",
+          "TargetAppend": false,
+          "SourceSubPalette": 0
+        },
+        {
+          "TargetFile": "title_palette.inc",
+          "TargetSegmentName": "TITLE_PRG",
+          "TargetVariableName": "title_palette_b",
+          "TargetAppend": true,
+          "SourceSubPalette": 1
+        },
+        {
+          "TargetFile": "title_palette.inc",
+          "TargetSegmentName": "TITLE_PRG",
+          "TargetVariableName": "title_palette_c",
+          "TargetAppend": true,
+          "SourceSubPalette": 2
+        },
+        {
+          "TargetFile": "title_palette.inc",
+          "TargetSegmentName": "TITLE_PRG",
+          "TargetVariableName": "title_palette_d",
+          "TargetAppend": true,
+          "SourceSubPalette": 3
+        }
+      ]
+    }
+  ]
 }

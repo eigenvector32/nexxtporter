@@ -8,6 +8,7 @@
         public IList<ExportNametableConfig>? ExportNametable { get; set; }
         public IList<ExportNametableAttributesConfig>? ExportNametableAttributes { get; set; }
         public IList<ExportBitmapConfig>? ExportBitmap { get; set; }
+        public IList<ExportNametableBitmapConfig>? ExportNametableBitmap { get; set; }
     }
 
     static class NSS
@@ -76,6 +77,13 @@
                     foreach(ExportBitmapConfig exportBitmap in nss.ExportBitmap)
                     {
                         await ExportBitmap.ProcessExportBitmap(log, config, nss, exportBitmap, tokens, rgbLookupTables);
+                    }
+                }
+                if(nss.ExportNametableBitmap != null)
+                {
+                    foreach(ExportNametableBitmapConfig exportNametableBitmap in nss.ExportNametableBitmap)
+                    {
+                        await ExportNametableBitmap.ProcessExportNametableBitmap(log, config, nss, exportNametableBitmap, tokens, rgbLookupTables);
                     }
                 }
             }

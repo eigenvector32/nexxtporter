@@ -229,7 +229,7 @@ Writes the full 64 bytes of nametable attribute data from the NSS file to a bina
 Combines a subset of CHR data and palette data from the NSS file to render a PNG bitmap of those tiles. A lookup table is used to assign RGB values to the NES palette indices. There is a built in default lookup table which is identical to that in Nexxt but alternates can be provided via RGBLookupTables (see above).
 
     {
-        "TargetFile": "tiles.png"
+        "TargetFile": "tiles.png",
         "StartTileIndex": "$100",
         "TileCount": "$40",
         "Layout": 1,
@@ -298,111 +298,115 @@ Combines a subset of CHR data and palette data from the NSS file to render a PNG
 ## Example config.json
 
     {
-        "LogConfig":
+      "LogConfig": {
+        "Echo": true,
+        "LogFile": "./bin/nexxtporter.log"
+      },
+      "NSSFiles": [
         {
-            "Echo": true,
-            "LogFile": "./bin/nexxtporter.log"
-        },
-        "NSSFiles":
-        [
+          "SourceFile": "./nss/font.nss",
+          "ExportCHR": [
             {
-                "SourceFile": "./nss/font.nss",
-                "ExportCHR":
-                [
-                    {
-                        "TargetFile": "./chr/font.chr",
-                        "Start": "0",
-                        "Size": "$400"
-                    }
-                ]
+              "TargetFile": "./chr/font.chr",
+              "Start": "0",
+              "Size": "$400"
             }
+          ]
+        },
+        {
+          "SourceFile": "./nss/title.nss",
+          "ExportCHR": [
             {
-                "SourceFile": "./nss/title.nss",
-                "ExportCHR":
-                [
-                    {
-                      "TargetFile": "./chr/title_a.chr",
-                      "Start": "0",
-                      "Size": "$0400"
-                    },
-                    {
-                      "TargetFile": "./chr/title_b.chr",
-                      "Start": "$0400",
-                      "Size": "$0400"
-                    },
-                    {
-                      "TargetFile": "./chr/title_c.chr",
-                      "Start": "$0800",
-                      "Size": "$0400"
-                    },
-                    {
-                      "TargetFile": "./chr/title_d.chr",
-                      "Start": "$0C00",
-                      "Size": "$0400"
-                    },
-                    {
-                      "TargetFile": "./chr/title_e.chr",
-                      "Start": "$1000",
-                      "Size": "$0400"
-                    },
-                    {
-                      "TargetFile": "./chr/title_f.chr",
-                      "Start": "$1400",
-                      "Size": "$0400"
-                    },
-                    {
-                      "TargetFile": "./chr/title_g.chr",
-                      "Start": "$1800",
-                      "Size": "$0400"
-                    },
-                    {
-                      "TargetFile": "./chr/title_h.chr",
-                      "Start": "$1C00",
-                      "Size": "$0400"
-                    }
-                ],
-                "ExportNametable":
-                [
-                    {
-                        "TargetFile": "./nam/title_nametable.dat"
-                    }
-                ],
-                "ExportNametableAttributes":
-                [
-                    {
-                        "TargetFile": "./nam/title_nametable_attributes.dat"
-                    }
-                ],
-                "ExportPalette": [
-                    {
-                        "TargetFile": "./src/title_palette.inc",
-                        "TargetSegmentName": "TITLE_PRG",
-                        "TargetVariableName": "title_palette_a",
-                        "TargetAppend": false,
-                        "SourceSubPalette": 0
-                    },
-                    {
-                        "TargetFile": "./src/title_palette.inc",
-                        "TargetSegmentName": "TITLE_PRG",
-                        "TargetVariableName": "title_palette_b",
-                        "TargetAppend": true,
-                        "SourceSubPalette": 1
-                    },
-                    {
-                        "TargetFile": "./src/title_palette.inc",
-                        "TargetSegmentName": "TITLE_PRG",
-                        "TargetVariableName": "title_palette_c",
-                        "TargetAppend": true,
-                        "SourceSubPalette": 2
-                    },
-                    {
-                        "TargetFile": "./src/title_palette.inc",
-                        "TargetSegmentName": "TITLE_PRG",
-                        "TargetVariableName": "title_palette_d",
-                        "TargetAppend": true,
-                        "SourceSubPalette": 3
-                    }
-                ]
-            ]
+              "TargetFile": "./chr/title_a.chr",
+              "Start": "0",
+              "Size": "$0400"
+            },
+            {
+              "TargetFile": "./chr/title_b.chr",
+              "Start": "$0400",
+              "Size": "$0400"
+            },
+            {
+              "TargetFile": "./chr/title_c.chr",
+              "Start": "$0800",
+              "Size": "$0400"
+            },
+            {
+              "TargetFile": "./chr/title_d.chr",
+              "Start": "$0C00",
+              "Size": "$0400"
+            },
+            {
+              "TargetFile": "./chr/title_e.chr",
+              "Start": "$1000",
+              "Size": "$0400"
+            },
+            {
+              "TargetFile": "./chr/title_f.chr",
+              "Start": "$1400",
+              "Size": "$0400"
+            },
+            {
+              "TargetFile": "./chr/title_g.chr",
+              "Start": "$1800",
+              "Size": "$0400"
+            },
+            {
+              "TargetFile": "./chr/title_h.chr",
+              "Start": "$1C00",
+              "Size": "$0400"
+            }
+          ],
+          "ExportNametable": [
+            {
+              "TargetFile": "./nam/title_nametable.dat"
+            }
+          ],
+          "ExportNametableAttributes": [
+            {
+              "TargetFile": "./nam/title_nametable_attributes.dat"
+            }
+          ],
+          "ExportPalette": [
+            {
+              "TargetFile": "./src/title_palette.inc",
+              "TargetSegmentName": "TITLE_PRG",
+              "TargetVariableName": "title_palette_a",
+              "TargetAppend": false,
+              "SourceSubPalette": 0
+            },
+            {
+              "TargetFile": "./src/title_palette.inc",
+              "TargetSegmentName": "TITLE_PRG",
+              "TargetVariableName": "title_palette_b",
+              "TargetAppend": true,
+              "SourceSubPalette": 1
+            },
+            {
+              "TargetFile": "./src/title_palette.inc",
+              "TargetSegmentName": "TITLE_PRG",
+              "TargetVariableName": "title_palette_c",
+              "TargetAppend": true,
+              "SourceSubPalette": 2
+            },
+            {
+              "TargetFile": "./src/title_palette.inc",
+              "TargetSegmentName": "TITLE_PRG",
+              "TargetVariableName": "title_palette_d",
+              "TargetAppend": true,
+              "SourceSubPalette": 3
+            }
+          ],
+          "ExportBitmap": [
+            {
+              "TargetFile": "./bin/font.png",
+              "StartTileIndex": "0",
+              "TileCount": "64",
+              "Layout": 1,
+              "PaletteSetIndex": "0",
+              "PaletteIndex": "0"
+            }
+          ]
         }
+      ]
     }
