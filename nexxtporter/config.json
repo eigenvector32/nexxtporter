@@ -12,6 +12,11 @@
           "Start": "0",
           "Size": "$400"
         }
+      ],
+      "ExportNametableBitmap": [
+        {
+          "TargetFile": "project2.png"
+        }
       ]
     },
     {

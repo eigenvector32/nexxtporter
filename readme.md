@@ -10,6 +10,7 @@ The currently supported features include:
 * Export nametable data as binary files
 * Export nametable pattern data as binary files
 * Render pngs using CHR and palette data
+* Render pngs of the nametable shown in Nexxt
 
 There is a complete working example of a configuration file at the end of this document.
 
@@ -103,7 +104,8 @@ Each entry in the NSSFiles array will contain all the operations to be performed
         "ExportPalette": [ ],
         "ExportNametable": [ ],
         "ExportNametableAttributes": [ ],
-        "ExportBitmap": [ ]
+        "ExportBitmap": [ ],
+        "ExportNametableBitmap": [ ]
     }
 
 ### Attributes
@@ -120,6 +122,8 @@ Each entry in the NSSFiles array will contain all the operations to be performed
   Every object in each of these arrays represents a single export operation using data from the parent NSS file. See below for details on each kind of operation.
 
 ### ExportCHR
+Optional
+
 Extracts some or all of the CHR data in the NSS file and saves it to a binary file.
 
     {
@@ -146,6 +150,8 @@ Extracts some or all of the CHR data in the NSS file and saves it to a binary fi
   Number of bytes of data to save to TargetFile.
 
 ### ExportPalette
+Optional
+
 Extracts a single 16 byte of palette data from the NSS file and formats it as source code.
 
     {
@@ -198,6 +204,8 @@ The output to the target file for the above config is formatted as follows:
   Each NSS file stores 4 palettes (labeled A-D in the Nexxt app). This attribute selects which one to write (0 = A, 1 = B etc...).
 
 ### ExportNametable
+Optional
+
 Writes the full 960 byte nametable from the NSS file to a binary file.
 
     {
@@ -212,6 +220,8 @@ Writes the full 960 byte nametable from the NSS file to a binary file.
   The file to which to save the 960 bytes of nametable data.
 
 ### ExportNametableAttributes
+Optional
+
 Writes the full 64 bytes of nametable attribute data from the NSS file to a binary file.
 
     {
@@ -226,6 +236,8 @@ Writes the full 64 bytes of nametable attribute data from the NSS file to a bina
   The file to which to save the 64 bytes of nametable attribute data.
 
 ### ExportBitmap
+Optional
+
 Combines a subset of CHR data and palette data from the NSS file to render a PNG bitmap of those tiles. A lookup table is used to assign RGB values to the NES palette indices. There is a built in default lookup table which is identical to that in Nexxt but alternates can be provided via RGBLookupTables (see above).
 
     {
@@ -294,6 +306,43 @@ Combines a subset of CHR data and palette data from the NSS file to render a PNG
   Optional, numeric string, defaults to "0"
 
   Which palette in the specified palette set to use. Must be in the range 0-4.
+
+### ExportNametableBitmap
+Optional
+
+Draws a PNG bitmap of the nametable shown in Nexxt. This combines nametable, nametable attributes, CHR patterns, palettes and an RGB lookup table (see above).
+
+    {
+        "TargetFile": "tiles.png",
+        "RGBLookupID": "Default",
+        "CHRIndex": "0",
+        "PaletteSetIndex": "0"
+    }
+
+### Attributes
+* TargetFile
+
+  Required, string
+
+  The file to which a PNG bitmap will be written.
+
+* RGBLookupID
+
+  Optional, string, defaults to "Default"
+
+  If set, the RGBLookupTable with the specified ID will be used to determine RGB color values for each NES color index.
+
+* CHRIndex
+
+  Optional, numeric string, defaults to "0"
+
+  In each NSS file there are 4 sets of CHR pattern data of 256 tiles each. CHRIndex determines which set of 256 tiles to use. Must be in the range 0-3.
+
+* PaletteSetIndex
+
+  Optional, numeric string, defaults to "0"
+
+  In each NSS file there are 4 sets of 4 palettes each. PaletteSetIndex determines which set of 4 to use for this bitmap. Must be in the range 0-3.
 
 ## Example config.json
 

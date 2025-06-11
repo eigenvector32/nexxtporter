@@ -234,7 +234,7 @@ namespace nexxtporter
             }
         }
 
-        private static void WriteTile(SKBitmap bitmap, int targetX, int targetY, Pattern pattern, Palette palette, RGBLookup rgbLookup)
+        public static void WriteTile(SKBitmap bitmap, int targetX, int targetY, Pattern pattern, Palette palette, RGBLookup rgbLookup)
         {
             for (int y = 0; y < 8; y++)
             {
